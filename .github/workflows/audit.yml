@@ -5,7 +5,7 @@ on:
       - '**/Cargo.toml'
       - '**/Cargo.lock'
   schedule:
-    - cron: '0 0 * * 2'
+    - cron: "0 0 1 * *"
 
 jobs:
   security_audit:
