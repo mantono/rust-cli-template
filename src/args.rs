@@ -11,13 +11,6 @@ pub struct Args {
     #[clap(short = 'v', long = "verbosity", default_value = "1")]
     pub verbosity_level: u8,
 
-    /// Print debug information
-    ///
-    /// Print debug information about current build for binary, useful for when an issue is
-    /// encountered and reported
-    #[clap(short = 'D', long = "debug")]
-    pub print_dbg: bool,
-
     /// Enable/disable colors
     ///
     /// Enable or disable output with colors. By default colors will be used if the terminal seems
