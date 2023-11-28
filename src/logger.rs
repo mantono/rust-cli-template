@@ -11,7 +11,9 @@ pub fn setup_logging(verbosity_level: u8) {
 }
 
 fn log_by_env_var() {
-    env_logger::Builder::from_default_env().format(formatter).init()
+    env_logger::Builder::from_default_env()
+        .format(formatter)
+        .init()
 }
 
 fn log_by_cmd_arg(verbosity_level: u8) {
@@ -25,7 +27,10 @@ fn log_by_cmd_arg(verbosity_level: u8) {
         _ => panic!("Invalid verbosity level: {}", verbosity_level),
     };
 
-    env_logger::builder().format(formatter).filter_level(filter).init()
+    env_logger::builder()
+        .format(formatter)
+        .filter_level(filter)
+        .init()
 }
 
 fn formatter(buf: &mut Formatter, record: &Record) -> io::Result<()> {
