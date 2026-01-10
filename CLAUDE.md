@@ -23,12 +23,23 @@ The following crates.io dependencies are considered "whitelisted", no explicit a
 - clap
 - tokio
 - serde
+- serde_json
+- http
+- axum
 - reqwest
 - log
+- walkdir
+- itertools
+- giro
+- quickcheck
+- quickcheck_macros
 
-In addition to this, and depdenency which comes is hosted on GitHub AND belongs to the user 'mantono' is also permitted.
+In addition to this, and depdenency which is hosted on GitHub AND belongs to the user 'mantono' is also permitted.
 
 For all other dependencies, clear and explicit approval must be asked before the dependencies may be used. Avoid adding dependencies for minor or trivial functionality that we could implement ourselves.
+
+## Tests
+Where it is suitable, use quickcheck for property based testing, otherwise use the regular mechanism for testing in Rust.
 
 ## Documentation
 Any public (`pub`) function should be documented, and any non-trivial private function as well.
