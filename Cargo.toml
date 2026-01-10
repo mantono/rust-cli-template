@@ -2,7 +2,7 @@
 name = "my_crate"
 version = "0.1.0"
 authors = ["Anton Österberg <anton@42x.io>"]
-edition = "2021"
+edition = "2024"
 
 [dependencies]
 clap = { version = "4", features = ["cargo", "color", "derive", "suggestions"] }
