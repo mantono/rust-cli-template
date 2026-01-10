@@ -6,7 +6,6 @@ use crate::args::Args;
 use crate::fmt::write;
 use crate::logger::setup_logging;
 use clap::Parser;
-use std::process;
 use termcolor::{Color, StandardStream};
 
 fn main() {

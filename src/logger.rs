@@ -1,4 +1,4 @@
-use env_logger::fmt::{Color, Formatter};
+use env_logger::fmt::Formatter;
 use log::{Level, LevelFilter, Record};
 use std::io;
 use std::io::Write;
@@ -34,18 +34,21 @@ fn log_by_cmd_arg(verbosity_level: u8) {
 }
 
 fn formatter(buf: &mut Formatter, record: &Record) -> io::Result<()> {
+    const YELLOW: &str = "\x1b[33m";
+    const RED: &str = "\x1b[31m";
+    const RESET: &str = "\x1b[0m";
+
     match record.level() {
         Level::Info => writeln!(buf, "{}", record.args()),
-        Level::Warn => {
-            let mut style = buf.style();
-            style.set_color(Color::Yellow);
-            writeln!(buf, "{}: {}", style.value(record.level()), record.args())
-        }
-        Level::Error => {
-            let mut style = buf.style();
-            style.set_color(Color::Red);
-            writeln!(buf, "{}: {}", style.value(record.level()), record.args())
-        }
+        Level::Warn => writeln!(
+            buf,
+            "{}{}{}: {}",
+            YELLOW,
+            record.level(),
+            RESET,
+            record.args()
+        ),
+        Level::Error => writeln!(buf, "{}{}{}: {}", RED, record.level(), RESET, record.args()),
         _ => writeln!(buf, "{}: {}", record.level(), record.args()),
     }
 }

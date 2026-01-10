@@ -8,8 +8,8 @@ edition = "2024"
 clap = { version = "4", features = ["cargo", "color", "derive", "suggestions"] }
 regex = "1"
 log = "0.4"
-env_logger = "0.10"
-termcolor = "1.2"
+env_logger = "0.11"
+termcolor = "1"
 
 [profile.release]
 lto = true
