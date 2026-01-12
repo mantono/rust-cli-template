@@ -34,15 +34,30 @@ The following crates.io dependencies are considered "whitelisted", no explicit a
 - quickcheck
 - quickcheck_macros
 
-In addition to this, and depdenency which is hosted on GitHub AND belongs to the user 'mantono' is also permitted.
+In addition to this, any depdenency which is hosted on GitHub AND belongs to the user 'mantono' is also permitted.
 
-For all other dependencies, clear and explicit approval must be asked before the dependencies may be used. Avoid adding dependencies for minor or trivial functionality that we could implement ourselves.
+For all other dependencies, clear and explicit approval must be asked before the dependencies may be used. Avoid adding dependencies for minor or trivial functionality that we could implement ourselves. Only enable the minimal amount of features required for dependencies, i.e. no default features.
+
+## Code Style
+- Avoid creating larger functions when possible
+- Prefer writing functional code over purely imperative code
+- Never use `unwrap()`, except for in tests or doctest
+- Make functions `const` when possible
+
+### Library Crates
+- Never use `expect()`
+- Never expose error types in the public API which are declared in dependecy crates
+
+### Binary Crates
+- Use of `expect()` may only be permitted if an error is of an irrevoverable nature
+- Create an own application error enum that can be used to convert to from underlying errors. This error enum should implement the Error trait and each error should map towards a unique status coe (for binary crates) 
 
 ## Tests
-Where it is suitable, use quickcheck for property based testing, otherwise use the regular mechanism for testing in Rust.
+Where it is suitable, use quickcheck for property based testing, otherwise use the regular mechanism for testing in Rust. Keep a limited scope of each test, prefer many smaller tests over sinlge larger tests that tests multiple things at once.
 
 ## Documentation
-Any public (`pub`) function should be documented, and any non-trivial private function as well.
+- Any public (`pub`) function should be documented, and any non-trivial private function as well
+- Add doctests for public functions
 
 ## Validation
 Always verify that
