@@ -39,8 +39,8 @@ In addition to this, any depdenency which is hosted on GitHub AND belongs to the
 For all other dependencies, clear and explicit approval must be asked before the dependencies may be used. Avoid adding dependencies for minor or trivial functionality that we could implement ourselves. Only enable the minimal amount of features required for dependencies, i.e. no default features.
 
 ## Code Style
-- Avoid creating larger functions when possible
-- Prefer writing functional code over purely imperative code
+- Use small-to-medium functions; avoid deeply nested logic
+- Prefer functional idioms over purely imperative code
 - Never use `unwrap()`, except for in tests or doctest
 - Make functions `const` when possible
 
