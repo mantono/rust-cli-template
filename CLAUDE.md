@@ -43,3 +43,10 @@ Where it is suitable, use quickcheck for property based testing, otherwise use t
 
 ## Documentation
 Any public (`pub`) function should be documented, and any non-trivial private function as well.
+
+## Validation
+Always verify that
+- code compiles (`cargo build --all-features`)
+- tests are passing (`cargo test --all-features`)
+- code is correctly formatted (`cargo format`)
+- code adheres to best practices (`cargo clippy`)
