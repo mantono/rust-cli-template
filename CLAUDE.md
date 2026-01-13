@@ -61,7 +61,7 @@ Where it is suitable, use quickcheck for property based testing, otherwise use t
 
 ## Validation
 Always verify that
-- code compiles (`cargo build --all-features`)
+- code has corrext syntax (`cargo check --all-features`)
 - tests are passing (`cargo test --all-features`)
-- code is correctly formatted (`cargo format`)
+- code is correctly formatted (`cargo fmt`)
 - code adheres to best practices (`cargo clippy`)
