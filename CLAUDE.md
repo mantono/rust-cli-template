@@ -19,6 +19,7 @@ Performance is important and desirable, but not as important as the above priori
 ## Dependencies
 The following crates.io dependencies are considered "whitelisted", no explicit approval is required for using them.
 - regex
+- chrono
 - clap
 - tokio
 - serde
