@@ -8,7 +8,6 @@ The API - and code - should be intuitive and unsurprising. Less is more is a gui
 Running the service should require minimal resources, both in terms of memory and CPU usage.
 
 #### Secure & Reliable
-
 This project should be built in such way that it has as few attack vectors as possible. Reducing complexity is a corner stone for achieving this.
 
 #### Testable
@@ -50,7 +49,7 @@ For all other dependencies, clear and explicit approval must be asked before the
 
 ### Binary Crates
 - Use of `expect()` may only be permitted if an error is of an irrevoverable nature
-- Create an own application error enum that can be used to convert to from underlying errors. This error enum should implement the Error trait and each error should map towards a unique status coe (for binary crates) 
+- Create an own application error enum that can be used to convert to from underlying errors. This error enum should implement the Error trait and each error should map towards a unique exit code (for binary crates) 
 
 ## Tests
 Where it is suitable, use quickcheck for property based testing, otherwise use the regular mechanism for testing in Rust. Keep a limited scope of each test, prefer many smaller tests over sinlge larger tests that tests multiple things at once.
@@ -65,3 +64,6 @@ Always verify that
 - tests are passing (`cargo test --all-features`)
 - code is correctly formatted (`cargo fmt`)
 - code adheres to best practices (`cargo clippy`)
+
+## Interactions
+If there are any uncertainties on how to proceed with a task, ask for clarifications.
